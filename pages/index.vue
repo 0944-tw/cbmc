@@ -2,9 +2,7 @@
 var Posts = ref({});
 const fetchLatestPost = async () => {
   console.log("Fetching");
-  const data = await fetch(
-    "https://api.cbdc.bio/v1/latest?limit=300"
-  );
+  const data = await fetch("https://api.cbdc.bio/v1/latest?limit=300");
   const json = await data.json();
   Posts.value = json.posts;
 };
@@ -47,7 +45,7 @@ fetchLatestPost();
                       style="margin-bottom: 5px"
                       nuxt
                       :to="`view?id=${post.post.id.platform}`"
-                     >
+                    >
                       <template v-slot:title>
                         <span class="font-weight-black">{{
                           post.post.content.split("，")[0]
