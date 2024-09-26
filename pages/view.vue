@@ -13,10 +13,11 @@ await fetch("https://api.cbdc.bio/v1/post/" + route.query.id).then(async (value)
       URL: ${window.location.href}
       Request URL: https://api.cbdc.bio/v1/post/${route.query.id}
     `);
-   console.log(json)
+    console.error("出現問題，請稍後再試");
+    console.error(json)
     date.value = "無法正確載入文章";
-  content.value = "無法正確載入文章";
-  type.value = "無法正確載入文章";
+    content.value = "無法正確載入文章";
+    type.value = "無法正確載入文章";
     return;
   }
   console.log(json);
