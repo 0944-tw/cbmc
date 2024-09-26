@@ -6,6 +6,19 @@ var date = useState('date', () => '')
 var type = useState('type', () => '')
 await fetch("https://api.cbdc.bio/v1/post/" + route.query.id).then(async (value) => {
   const json = await value.json();
+  if (json.status == "failed") {
+    console.log(`
+      Failed to load post with ID ${route.query.id}
+      ${json.message}
+      URL: ${window.location.href}
+      Request URL: https://api.cbdc.bio/v1/post/${route.query.id}
+    `);
+
+    date.value = "無法正確載入文章";
+  content.value = "無法正確載入文章";
+  type.value = "無法正確載入文章";
+    return;
+  }
   console.log(json);
   date.value = json.posts["1"].post.approve.time;
   content.value = json.posts["1"].post.content;
