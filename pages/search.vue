@@ -29,8 +29,7 @@ var CurrentPage = ref(0);
   SearchResult.value = result.hits;
   SearchPages.value = result.nbPages;
 
-  console.log(result);
-};
+ };
 searchAsync("三X");
 </script>
 <template>
