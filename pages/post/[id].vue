@@ -5,7 +5,7 @@ var content = useState("content", () => "");
 var date = useState("date", () => "");
 var type = useState("type", () => "");
 
-const value = await fetch("https://api.cbdc.bio/v1/post/" + route.query.id);
+const value = await fetch("https://api.cbdc.bio/v1/post/" + route.params.id);
 const json = await value.json();
 
 console.log(json);
@@ -15,7 +15,7 @@ type.value = json.posts["1"].post.type;
 useServerSeoMeta({
   title: () => "靠北DC - " + content.value.split("，")[0].slice(0, 25),
   description: () => content.value.slice(0, 100),
-  ogImage: `https://cbmc.club/open_graph/open_graph_${route.query.id}.png`,
+  ogImage: `https://cbmc.club/open_graph/open_graph_${route.params.id}.png`,
   ogTitle: () => "靠北DC - " + content.value.split("，")[0].slice(0, 25),
   ogDescription: () => content.value.slice(0, 100),
   twitterCard: "summary_large_image",

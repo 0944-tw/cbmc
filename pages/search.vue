@@ -77,7 +77,7 @@ searchAsync("三X");
                     :subtitle="post.type"
                     style="margin-bottom: 5px"
                     nuxt
-                    :to="`view?id=${post.id}`"
+                    :to="`/post/${post.id}`"
                   >
                     <template v-slot:title>
                       <span class="font-weight-black">{{
