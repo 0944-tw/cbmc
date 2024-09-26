@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/sitemap": "^6.1.0",
+    "axios": "^1.7.7",
     "nuxt": "^3.12.4",
     "vue": "latest"
   },

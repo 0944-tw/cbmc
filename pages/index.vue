@@ -6,6 +6,14 @@ const fetchLatestPost = async () => {
   const json = await data.json();
   Posts.value = json.posts;
 };
+useServerSeoMeta({
+  title: () => " 麥塊匿名遊覽平台 » cbdc.bio › 遊覽文章  ",
+  description: () => "麥塊匿名遊覽平台 » cbdc.bio › 遊覽文章 ",
+   ogTitle: () => "麥塊匿名遊覽平台 » cbdc.bio › 遊覽文章 ",
+  ogDescription: () => "麥塊匿名遊覽平台 » cbdc.bio › 遊覽文章 ",
+ 
+});
+
 fetchLatestPost();
 </script>
 
