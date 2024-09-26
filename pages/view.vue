@@ -1,30 +1,27 @@
 <script setup>
 const route = useRoute();
- 
-var content = useState('content', () => '')
-var date = useState('date', () => '')
-var type = useState('type', () => '')
-await fetch("https://api.cbdc.bio/v1/post/" + route.query.id).then(async (value) => {
-  const json = await value.json();
-  if (json.status == "failed") {
-    console.log(`
-      Failed to load post with ID ${route.query.id}
-      ${json.message}
-      URL: ${window.location.href}
-      Request URL: https://api.cbdc.bio/v1/post/${route.query.id}
-    `);
-    console.error("出現問題，請稍後再試");
-    console.error(json)
-    date.value = "無法正確載入文章";
-    content.value = "無法正確載入文章";
-    type.value = "無法正確載入文章";
-    return;
-  }
-  console.log(json);
-  date.value = json.posts["1"].post.approve.time;
-  content.value = json.posts["1"].post.content;
-  type.value = json.posts["1"].post.type;
+
+var content = useState("content", () => "");
+var date = useState("date", () => "");
+var type = useState("type", () => "");
+
+const value = await fetch("https://api.cbdc.bio/v1/post/" + route.query.id);
+const json = await value.json();
+
+console.log(json);
+date.value = json.posts["1"].post.approve.time;
+content.value = json.posts["1"].post.content;
+type.value = json.posts["1"].post.type;
+useServerSeoMeta({
+  title: () => "靠北DC - " + content.value.split("，")[0].slice(0, 25),
+  description: () => content.value.slice(0, 100),
+  ogImage: `https://cbmc.club/open_graph/open_graph_${route.query.id}.png`,
+  ogTitle: () => "靠北DC - " + content.value.split("，")[0].slice(0, 25),
+  ogDescription: () => content.value.slice(0, 100),
+  twitterCard: "summary_large_image",
+
 });
+
 const share = () => {
   navigator.share({
     url: window.location.href,
