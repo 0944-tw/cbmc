@@ -1,9 +1,10 @@
 <script setup>
 const route = useRoute();
-var content = ref("");
-var date = ref("");
-var type = ref("");
-fetch("https://api.cbdc.bio/v1/post/" + route.query.id).then(async (value) => {
+ 
+var content = useState('content', () => '')
+var date = useState('date', () => '')
+var type = useState('type', () => '')
+await fetch("https://api.cbdc.bio/v1/post/" + route.query.id).then(async (value) => {
   const json = await value.json();
   console.log(json);
   date.value = json.posts["1"].post.approve.time;
