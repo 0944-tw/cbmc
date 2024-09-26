@@ -13,7 +13,7 @@ await fetch("https://api.cbdc.bio/v1/post/" + route.query.id).then(async (value)
       URL: ${window.location.href}
       Request URL: https://api.cbdc.bio/v1/post/${route.query.id}
     `);
-
+   console.log(json)
     date.value = "無法正確載入文章";
   content.value = "無法正確載入文章";
   type.value = "無法正確載入文章";
