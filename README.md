@@ -9,6 +9,7 @@ CBMCPlus是一款開源麥塊匿名發文平台的增強版. 尚未完成. 使�
 - [x] 行動裝置優化
 - [x] 搜尋
 - [x] 文章預覽 Meta Tag. 
+- [x] Service Worker (文章通知)
 - [ ] 多語言支持, Meta Tag可透過加上 ?lang=en 來顯示英文meta tag (會自動翻譯)
 - [ ] 搜尋引擎支援
 - [ ] 篩選
