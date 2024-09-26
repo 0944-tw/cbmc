@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/view?id=:id": {
-      swr: true
+      swr: true,
+      ssr: true
     }
   },
   build: {
@@ -22,7 +23,9 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }));
       });
     },
+  
    ],
+   
 
   vite: {
     vue: {
