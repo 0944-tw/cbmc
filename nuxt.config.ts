@@ -2,12 +2,17 @@ import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: true,
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
-
+  routeRules: {
+    "/view?id=:id": {
+      ssr: true
+    }
+  },
   build: {
     transpile: ["vuetify"],
   },
