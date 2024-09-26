@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/view?id=:id": {
-      ssr: true
+      swr: true
     }
   },
   build: {
