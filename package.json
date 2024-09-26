@@ -11,15 +11,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/algolia": "^1.10.2",
-    "algoliasearch": "^5.4.1",
-    "idb": "^8.0.0",
-    "instantsearch.css": "^8.5.1",
-    "nuxt": "^3.12.4",
-    "nuxt3-localforage": "^0.1.2",
-    "vue": "latest",
-    "vue-instantsearch": "^4.19.4"
-  },
+      "idb": "^8.0.0",
+     "nuxt": "^3.12.4",
+     "vue": "latest"  },
   "devDependencies": {
     "vite-plugin-vuetify": "^2.0.4",
     "vuetify": "^3.7.0"
