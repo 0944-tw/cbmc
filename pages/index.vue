@@ -52,7 +52,7 @@ fetchLatestPost();
                       :subtitle="post.post.type"
                       style="margin-bottom: 5px"
                       nuxt
-                      :to="`/post/${post.post.id.platform}`"
+                      :to="`/posts/${post.post.id.platform}`"
                     >
                       <template v-slot:title>
                         <span class="font-weight-black">{{

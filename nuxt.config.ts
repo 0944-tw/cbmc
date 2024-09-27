@@ -1,8 +1,8 @@
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
-
+import axios from "axios"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-   compatibilityDate: "2024-04-03",
+  compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   app: {
     pageTransition: { name: "page", mode: "out-in" },
@@ -10,8 +10,8 @@ export default defineNuxtConfig({
   routeRules: {
     "/view?id=:id": {
       swr: true,
-      ssr: true
-    }
+      ssr: true,
+    },
   },
   build: {
     transpile: ["vuetify"],
@@ -23,10 +23,8 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }));
       });
     },
-    '@nuxtjs/sitemap'
-
-   ],
-   
+    "@nuxtjs/sitemap",
+  ],
 
   vite: {
     vue: {
@@ -41,5 +39,19 @@ export default defineNuxtConfig({
     instantSearch: {
       theme: "algolia",
     },
+  },
+  site: {
+    url: "https://cbdc.bio",
+  },
+  sitemap: {
+     
+    routes: async () => {
+      const { data } = await axios.get(
+        'https://jsonplaceholder.typicode.com/posts'
+      )
+      return data.map((post) => `/posts/${post.id}`)
+    },
+    generate: true,
+    cacheTime: 1,
   },
 });

@@ -5,13 +5,12 @@ var content = useState("content", () => "");
 var date = useState("date", () => "");
 var type = useState("type", () => "");
 
-const value = await fetch("https://api.cbdc.bio/v1/post/" + route.params.id);
-const json = await value.json();
+const { data } = await useFetch('/api/fetchPostContent?id=' + route.params.id);
 
-console.log(json);
-date.value = json.posts["1"].post.approve.time;
-content.value = json.posts["1"].post.content;
-type.value = json.posts["1"].post.type;
+const post = data.value.post
+date.value = post.approve.time;
+content.value = post.content;
+type.value = post.type;
 useServerSeoMeta({
   title: () => "靠北DC - " + content.value.split("，")[0].slice(0, 25),
   description: () => content.value.slice(0, 100),
@@ -61,7 +60,7 @@ const share = () => {
                 {{ content.split("，")[0].slice(0, 25) }}
               </h1>
               <!-- Date -->
-              <p class="text-subtitle-2">{{ date }} 在 {{ type }}</p>
+              <p class="text-subtitle-2">🖊️ {{ type }} • 📅 {{date}}</p>
 
               <p class="text-body-1">{{ content }}</p>
             </v-container>
