@@ -62,13 +62,13 @@
         <v-row justify="center" no-gutters>
           <v-btn
             v-for="link in links"
-            :key="link"
+            :key="link.link"
             class="mx-2"
             color="white"
             rounded="xl"
             variant="text"
           >
-            {{ link }}
+            {{ link.title }}
           </v-btn>
           <v-col class="text-center mt-4" cols="12">
             {{ new Date().getFullYear() }} 0944-tw —
@@ -76,8 +76,12 @@
               >我們非麥塊匿名發文平台官方網站。與麥塊匿名發文平台沒有關聯。
             </span>
             <p>
+              <span>上一次更新Algolia資料時間: 上一次</span>
+
+            </p>
+             <p>
               <small class="text-grey"
-                >資料來源: 麥塊匿名發文平台 | 點我支持靠北資料庫</small
+                >資料來源: 麥塊匿名發文平台 | 點我支持靠北資料庫 | 位置: {{ process.env.VERCEL_REGION ||"不知道啊"}}</small
               >
             </p>
           </v-col>
