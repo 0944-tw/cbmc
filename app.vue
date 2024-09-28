@@ -81,7 +81,7 @@
             </p>
              <p>
               <small class="text-grey"
-                >資料來源: 麥塊匿名發文平台 | 點我支持靠北資料庫 | 位置: {{ process.env.VERCEL_REGION ||"不知道啊"}}</small
+                >資料來源: 麥塊匿名發文平台 | 點我支持靠北資料庫 | 位置: {{ $config.public.vercelRegion ||"不知道啊"}}</small
               >
             </p>
           </v-col>

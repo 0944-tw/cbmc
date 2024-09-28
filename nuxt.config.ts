@@ -54,4 +54,11 @@ export default defineNuxtConfig({
     generate: true,
     cacheTime: 1,
   },
+  runtimeConfig: {
+    public: {
+      vercelRegion: process.env.VERCEL_REGION,
+      deployID: process.env.VERCEL_DEPLOYMENT_ID,
+      isvercel: process.env.VERCEL
+    }
+  }
 });
